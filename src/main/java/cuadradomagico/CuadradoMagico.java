@@ -56,10 +56,18 @@ public class CuadradoMagico {
         return acumulador;
     }
 
+    private int sumaDiagonalSecundaria() {
+        int acumulador = 0;
+        for (int i = cuadradoMagico.length - 1; i >= 0; i--) {
+            acumulador += cuadradoMagico[i][cuadradoMagico.length - 1 - i];
+        }
+        return acumulador;
+    }
+
     public static void main(String[] args) {
         CuadradoMagico cuadrado = new CuadradoMagico();
         System.out.println(cuadrado.toString());
-        System.out.println("suma de la diagonal principal: " + cuadrado.sumaDiagonalPrincipal());
+        System.out.println("suma de la diagonal secundaria: " + cuadrado.sumaDiagonalSecundaria());
     }
 
 }
