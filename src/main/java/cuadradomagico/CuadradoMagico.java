@@ -40,12 +40,20 @@ public class CuadradoMagico {
         return acumulador;
     }
     
+    private int sumaColumna(int j) {
+        int acumulador = 0;
+        for (int i = 0; i < cuadradoMagico.length; i++) {
+            acumulador += cuadradoMagico[i][j];
+        }
+        return acumulador;
+    }
+    
     public static void main(String[] args) {
         CuadradoMagico cuadrado = new CuadradoMagico();
         System.out.println(cuadrado.toString());
-        System.out.println("suma de primera fila: " + cuadrado.sumaFila(0));
-        System.out.println("suma de segunda fila: " + cuadrado.sumaFila(1));
-        System.out.println("suma de tercera fila: " + cuadrado.sumaFila(2));
+        System.out.println("suma de primera columna: " + cuadrado.sumaColumna(0));
+        System.out.println("suma de segunda columna: " + cuadrado.sumaColumna(1));
+        System.out.println("suma de tercera columna: " + cuadrado.sumaColumna(2));
     }
 
 }
