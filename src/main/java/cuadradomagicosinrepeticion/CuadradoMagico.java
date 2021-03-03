@@ -1,5 +1,6 @@
-package cuadradomagico;
+package cuadradomagicosinrepeticion;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -11,16 +12,31 @@ public class CuadradoMagico {
     private int[][] cuadradoMagico;
     private static Random rd = new Random();
 
+    private ArrayList<Integer> listaPendientes;
+
     public CuadradoMagico() {
+        listaPendientes = rellenaLista();
         cuadradoMagico = new int[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                cuadradoMagico[i][j] = rd.nextInt(9) + 1;
+                if (listaPendientes.size() < 1) {
+                    cuadradoMagico[i][j] = listaPendientes.remove(rd.nextInt(listaPendientes.size() - 1));
+                } else {
+                    cuadradoMagico[i][j] = listaPendientes.remove(0);
+                }
             }
         }
     }
 
+    private ArrayList rellenaLista() {
+        ArrayList<Integer> lista = new ArrayList<>();
+        for (int i = 1; i <= 9; i++) {
+            lista.add(i);
+        }
+        return lista;
+    }
     //usado para comprobar esMagico()
+
     public void setCuadradoMagico(int[][] cuadradoMagico) {
         this.cuadradoMagico = cuadradoMagico;
     }

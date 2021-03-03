@@ -1,4 +1,4 @@
-package cuadradomagico;
+package cuadradomagicosinrepeticion;
 
 import java.util.ArrayList;
 
