@@ -20,4 +20,32 @@ public class CuadradoMagico {
         }
     }
 
+    @Override
+    public String toString() {
+        String texto = "";
+        for (int i = 0; i < cuadradoMagico.length; i++) {
+            for (int j = 0; j < cuadradoMagico[i].length; j++) {
+                texto += cuadradoMagico[i][j] + "\t";
+            }
+            texto += "\n";
+        }
+        return texto;
+    }
+
+    private int sumaFila(int i) {
+        int acumulador = 0;
+        for (int j = 0; j < cuadradoMagico[i].length; j++) {
+            acumulador += cuadradoMagico[i][j];
+        }
+        return acumulador;
+    }
+    
+    public static void main(String[] args) {
+        CuadradoMagico cuadrado = new CuadradoMagico();
+        System.out.println(cuadrado.toString());
+        System.out.println("suma de primera fila: " + cuadrado.sumaFila(0));
+        System.out.println("suma de segunda fila: " + cuadrado.sumaFila(1));
+        System.out.println("suma de tercera fila: " + cuadrado.sumaFila(2));
+    }
+
 }
