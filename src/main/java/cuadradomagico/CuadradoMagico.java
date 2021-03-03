@@ -20,6 +20,11 @@ public class CuadradoMagico {
         }
     }
 
+    //usado para comprobar esMagico()
+    public void setCuadradoMagico(int[][] cuadradoMagico) {
+        this.cuadradoMagico = cuadradoMagico;
+    }
+
     @Override
     public String toString() {
         String texto = "";
@@ -64,10 +69,34 @@ public class CuadradoMagico {
         return acumulador;
     }
 
+    //devuelve true si la suma de cada fila, columna y diagonal vela lo mismo
+    public boolean esMagico() {
+        int numeroMagico = this.sumaDiagonalSecundaria();
+        for (int k = 0; k < cuadradoMagico.length; k++) {
+            if (numeroMagico != this.sumaFila(k) || numeroMagico != this.sumaColumna(k)) {
+                return false;
+            }
+        }
+
+        if (numeroMagico != this.sumaDiagonalPrincipal()) {
+            return false;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         CuadradoMagico cuadrado = new CuadradoMagico();
+        
         System.out.println(cuadrado.toString());
-        System.out.println("suma de la diagonal secundaria: " + cuadrado.sumaDiagonalSecundaria());
+        System.out.println("es magico? " + cuadrado.esMagico());
+        System.out.println("------------------------------------------");
+        
+        //forzamos uno que cumple la condicion
+        int[][] matrizTest = {{8, 1, 6}, {3, 5, 7}, {4, 9, 2}};
+        cuadrado.setCuadradoMagico(matrizTest);
+        
+        System.out.println(cuadrado.toString());
+        System.out.println("es magico? " + cuadrado.esMagico());
     }
 
 }
