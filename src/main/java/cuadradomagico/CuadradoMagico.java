@@ -83,20 +83,4 @@ public class CuadradoMagico {
         }
         return true;
     }
-
-    public static void main(String[] args) {
-        CuadradoMagico cuadrado = new CuadradoMagico();
-        
-        System.out.println(cuadrado.toString());
-        System.out.println("es magico? " + cuadrado.esMagico());
-        System.out.println("------------------------------------------");
-        
-        //forzamos uno que cumple la condicion
-        int[][] matrizTest = {{8, 1, 6}, {3, 5, 7}, {4, 9, 2}};
-        cuadrado.setCuadradoMagico(matrizTest);
-        
-        System.out.println(cuadrado.toString());
-        System.out.println("es magico? " + cuadrado.esMagico());
-    }
-
 }
